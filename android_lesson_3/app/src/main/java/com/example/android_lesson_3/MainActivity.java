@@ -2,6 +2,8 @@ package com.example.android_lesson_3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -18,10 +20,90 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        System.out.println("In ONStart");
+    }
+
+
+
+    @SuppressLint("SetTextI18n")
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        EditText edtName = findViewById(R.id.editTextName);
+
+        CheckBox chbCoffee = findViewById(R.id.chbCoffee);
+        CheckBox chbTee = findViewById(R.id.chbTee);
+        CheckBox chbWatter = findViewById(R.id.chbWater);
+
+        drinksPrices.put(chbCoffee.getId(), 2.5);
+        drinksPrices.put(chbTee.getId(), 1.5);
+        drinksPrices.put(chbWatter.getId(), 1.0);
+
+        Button btnMinus = findViewById(R.id.btnDecrease);
+        Button btnPlus = findViewById(R.id.btnIncrease);
+
+        TextView tvCounter = findViewById(R.id.txtCounter);
+
+        btnMinus.setOnClickListener(v -> {
+            int quantity = Integer.parseInt(tvCounter.getText().toString());
+            if (quantity > 0) {
+                quantity--;
+                tvCounter.setText(Integer.toString(quantity));
+            } else {
+                Toast.makeText(this, "Quantity is already 0",
+                        Toast.LENGTH_LONG).show();
+            }
+        });
+
+        btnPlus.setOnClickListener(v -> {
+            int quantity = Integer.parseInt(tvCounter.getText().toString());
+            quantity++;
+            tvCounter.setText(Integer.toString(quantity));
+        });
+
+        Button btnOrder = findViewById(R.id.btnOrder);
+
+        Intent goToScreenTwo = new Intent(this, ActivityTwo.class);
+
+        btnOrder.setOnClickListener(v -> {
+            double finalSum = 0.0;
+            int quantity = Integer.parseInt(tvCounter.getText().toString());
+            if (chbCoffee.isChecked()) {
+                finalSum += drinksPrices.get(chbCoffee.getId()) * quantity;
+            }
+            if (chbTee.isChecked()) {
+                finalSum += drinksPrices.get(chbTee.getId()) * quantity;
+            }
+            if (chbWatter.isChecked()) {
+                finalSum += drinksPrices.get(chbWatter.getId()) * quantity;
+            }
+
+            Toast.makeText(this, "Hello, " +
+                            edtName.getText() + " your order price is "
+                            + finalSum, Toast.LENGTH_LONG)
+                    .show();
+            String username = edtName.getText().toString();
+            goToScreenTwo.putExtra("username", username);
+
+            startActivity(goToScreenTwo);
+
+        });
+
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
+
+
+    public void aClass() {
         CheckBox chbCoffee = findViewById(R.id.chbCoffee);
         CheckBox chbTee = findViewById(R.id.chbTee);
         CheckBox chbWater = findViewById(R.id.chbWater);
