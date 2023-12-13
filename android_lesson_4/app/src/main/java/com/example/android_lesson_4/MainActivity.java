@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnOrder = findViewById(R.id.btnOrder);
 
-        Intent goToScreenTwo = new Intent(this, ActivityTwo.class);
+        Intent goToScreenTwo = new Intent(this, UserInformationActivity.class);
 
         btnOrder.setOnClickListener(v -> {
             Toast.makeText(this, "Hello, " +

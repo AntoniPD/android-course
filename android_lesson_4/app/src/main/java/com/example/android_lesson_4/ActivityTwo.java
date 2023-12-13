@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,13 +21,13 @@ public class ActivityTwo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_two);
 
-        // Взимаме intent-a чрез който сме дошли на това activity, той винаги е един единствен
+        // Взимаме intent-intentExtras чрез който сме дошли на това activity, той винаги е един единствен
         Intent intent = getIntent();
-        var a = intent.getExtras();
+        var intentExtras = intent.getExtras();
 
         TextView tv = findViewById(R.id.textView);
-        assert a != null;
-        var usernameString = a.getString("username");
+        assert intentExtras != null;
+        var usernameString = intentExtras.getString("username");
 
         // чрез функцията intent.getSerializableExtra, като й подадем ключа под който сме сложили мапа,
         // подаваме като втори аргумент, типа на обекта който очакваме да получим
@@ -54,11 +55,18 @@ public class ActivityTwo extends AppCompatActivity {
         tv.setText(textMessage[0]);
 
         // Показваме цялата сума в Toast.
-        // this -> ни казва, че искаме Toast-a да се покаже на това activity
+        // this -> ни казва, че искаме Toast-intentExtras да се покаже на това activity
         // Toast.LENGTH_LONG -> казваме за какво време искаме да се покаже самият Toast
         Toast.makeText(this, "Sum to pay: " +
                         sumToPay.get(), Toast.LENGTH_LONG)
                 .show();
+
+        Button btnNext = findViewById(R.id.btnNext);
+
+        btnNext.setOnClickListener(v -> {
+
+        });
+
 
     }
 }
