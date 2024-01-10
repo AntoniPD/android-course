@@ -10,57 +10,56 @@
         android:id="@+id/toolbar"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:background="?attr/colorPrimary"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="61dp"
+        android:background="?attr/colorAccent"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toTopOf="@+id/btn1"
+        app:layout_constraintBottom_toTopOf="@+id/btnTwo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:menu="@menu/toolbar_menu"
-        app:title="Menu" />
-
-    <Button
-        android:id="@+id/btn1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="102dp"
-        android:layout_marginBottom="99dp"
-        android:text="Fragment 1"
-        app:layout_constraintBottom_toTopOf="@+id/fragmentContainerView2"
-        app:layout_constraintEnd_toStartOf="@+id/btn2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="99dp"
-        android:text="Fragment 2"
-        app:layout_constraintBottom_toTopOf="@+id/fragmentContainerView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn1"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:title="Menu"
+        app:menu="@menu/menu_layout"
+        app:titleTextColor="@color/white"
+        />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView2"
-        android:name = "com.example.android_lesson_5.FragmentOne"
+        android:id="@+id/fragmentContainer"
+        android:name="com.example.android_lesson_5.FragmentTwo"
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="66dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn1" />
+        app:layout_constraintTop_toBottomOf="@+id/btnTwo" />
+
+    <Button
+        android:id="@+id/btnOne"
+        android:layout_width="108dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="55dp"
+        android:text="Fragment One"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentContainer"
+        app:layout_constraintEnd_toStartOf="@+id/btnTwo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnTwo"
+        android:layout_width="97dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="56dp"
+        android:text="Fragment Two"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnOne"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

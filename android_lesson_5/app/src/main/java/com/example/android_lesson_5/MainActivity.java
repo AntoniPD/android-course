@@ -17,19 +17,19 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Override
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btn1 = findViewById(R.id.btn1);
-        Button btn2 = findViewById(R.id.btn2);
+        Button btn1 = findViewById(R.id.btnOne);
+        Button btn2 = findViewById(R.id.btnOne);
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         btn1.setOnClickListener(v -> {
             // Make a transaction to call the desired fragment
             fragmentManager.beginTransaction()
-                    .replace(R.id.fragmentContainerView2, new FragmentOne())
+                    .replace(R.id.fragmentContainer, new FragmentOne())
                     // without commit, won't work
                     .commit();
         });
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         btn2.setOnClickListener(v -> {
             // Make a transaction to call the desired fragment
             fragmentManager.beginTransaction()
-                    .replace(R.id.fragmentContainerView2, new FragmentTwo())
+                    .replace(R.id.fragmentContainer, new FragmentTwo())
                     // without commit, won't work
                     .commit();
         });
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // This is must have, in order to show the menu buttons
-        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        getMenuInflater().inflate(R.menu.menu_layout, menu);
         return true;
     }
 
@@ -59,10 +59,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         // Here we are setting what to do when a menu item is clicked
         switch (item.getItemId()) {
-            case R.id.menuAddGroup:
+            case R.id.itemAddGroup:
                 Toast.makeText(this, "Add group clicked",
                         Toast.LENGTH_LONG).show();
-            case R.id.menuEditGroup:
+            case R.id.itemEditGroup:
                 Toast.makeText(this, "Edit group clicked",
                         Toast.LENGTH_LONG).show();
         }
