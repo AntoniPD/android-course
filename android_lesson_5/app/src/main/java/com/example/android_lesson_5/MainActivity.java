@@ -58,10 +58,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         // Here we are setting what to do when a menu item is clicked
+        FragmentManager fragmentManager = getSupportFragmentManager();
         switch (item.getItemId()) {
             case R.id.itemAddGroup:
                 Toast.makeText(this, "Add group clicked",
                         Toast.LENGTH_LONG).show();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer, new FragmentTwo())
+                        // without commit, won't work
+                        .commit();
             case R.id.itemEditGroup:
                 Toast.makeText(this, "Edit group clicked",
                         Toast.LENGTH_LONG).show();

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/charImg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name" />
+
+    <TextView
+        android:id="@+id/txtHeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Height" />
+
+    <TextView
+        android:id="@+id/txtMass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mass" />
+
+    <TextView
+        android:id="@+id/txtHairColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HairColor" />
+
+    <TextView
+        android:id="@+id/txtSkinColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SkinColor" />
+
+    <TextView
+        android:id="@+id/txtEyeColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="EyeColor" />
+
+    <TextView
+        android:id="@+id/txtYob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="YOB" />
+
+    <TextView
+        android:id="@+id/txtGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gender" />
+</LinearLayout>
