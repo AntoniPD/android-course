@@ -4,8 +4,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class SWCharacter {
     private String name;
-    private int height;
-    private int mass;
+    private String height;
+    private String mass;
     @SerializedName(value="hair_color")
     private String hairColor;
     @SerializedName(value="skin_color")
@@ -16,17 +16,6 @@ public class SWCharacter {
     private String birthYear;
     private String gender;
 
-    public SWCharacter(String name, int height, int mass, String hairColor, String skinColor, String eyeColor, String birthYear, String gender) {
-        this.name = name;
-        this.height = height;
-        this.mass = mass;
-        this.hairColor = hairColor;
-        this.skinColor = skinColor;
-        this.eyeColor = eyeColor;
-        this.birthYear = birthYear;
-        this.gender = gender;
-    }
-
     public String getName() {
         return name;
     }
@@ -35,19 +24,19 @@ public class SWCharacter {
         this.name = name;
     }
 
-    public int getHeight() {
+    public String getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(String height) {
         this.height = height;
     }
 
-    public int getMass() {
+    public String getMass() {
         return mass;
     }
 
-    public void setMass(int mass) {
+    public void setMass(String mass) {
         this.mass = mass;
     }
 
@@ -88,6 +77,17 @@ public class SWCharacter {
     }
 
     public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public SWCharacter(String name, String height, String mass, String hairColor, String skinColor, String eyeColor, String birthYear, String gender) {
+        this.name = name;
+        this.height = height;
+        this.mass = mass;
+        this.hairColor = hairColor;
+        this.skinColor = skinColor;
+        this.eyeColor = eyeColor;
+        this.birthYear = birthYear;
         this.gender = gender;
     }
 }

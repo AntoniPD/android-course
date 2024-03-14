@@ -1,6 +1,8 @@
 package com.example.android_lesson_7.adapter;
 
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -9,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.android_lesson_7.R;
 
 public class ViewHolderSW extends RecyclerView.ViewHolder {
+    public ImageView imageView;
     public TextView txtName;
     public TextView txtHeight;
     public TextView txtMass;
@@ -17,9 +20,11 @@ public class ViewHolderSW extends RecyclerView.ViewHolder {
     public TextView txtEyeColor;
     public TextView txtYob;
     public TextView txtGender;
+    public Button saveButton;
 
     public ViewHolderSW(@NonNull View itemView) {
         super(itemView);
+        imageView = itemView.findViewById(R.id.charImg);
         txtName = itemView.findViewById(R.id.txtName);
         txtMass = itemView.findViewById(R.id.txtMass);
         txtHairColor = itemView.findViewById(R.id.txtHairColor);
@@ -28,6 +33,15 @@ public class ViewHolderSW extends RecyclerView.ViewHolder {
         txtYob = itemView.findViewById(R.id.txtYob);
         txtGender = itemView.findViewById(R.id.txtGender);
         txtHeight = itemView.findViewById(R.id.txtHeight);
+        saveButton = itemView.findViewById(R.id.btnSaveCharacter);
+    }
+
+    public Button getSaveButton() {
+        return saveButton;
+    }
+
+    public void setSaveButton(Button saveButton) {
+        this.saveButton = saveButton;
     }
 
     public TextView getTxtName() {
