@@ -1,5 +1,6 @@
 plugins {
     id("com.android.application")
+    id("com.google.gms.google-services") version "4.4.1" apply true
 }
 
 android {
@@ -50,4 +51,10 @@ dependencies {
     // optional - RxJava3 support for Room
     implementation("androidx.room:room-rxjava3:2.6.1")
     annotationProcessor("androidx.room:room-compiler:2.6.1")
+
+    implementation("com.google.firebase:firebase-core:21.1.1")
+    implementation("com.google.firebase:firebase-auth")
+    implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
+
+    implementation("com.google.firebase:firebase-analytics")
 }

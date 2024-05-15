@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         OkHttpClient client = new OkHttpClient();
         Retrofit retrofit = new Retrofit.Builder()
                 .client(client)
-                .baseUrl("https://swapi.py4e.com/api/")
+                .baseUrl("https://swapi.dev/api/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
